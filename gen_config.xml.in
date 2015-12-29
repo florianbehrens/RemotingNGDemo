@@ -1,0 +1,30 @@
+<AppConfig>
+    <RemoteGen>
+        <files>
+            <include>
+                ${POCO_BASE}/RemotingNG/include/Poco/RemotingNG/RemoteObject.h
+                ${POCO_BASE}/RemotingNG/include/Poco/RemotingNG/Proxy.h
+                ${POCO_BASE}/RemotingNG/include/Poco/RemotingNG/Skeleton.h
+                @INTERFACE_FILES@
+            </include>
+        </files>
+        <output>
+            <mode>both</mode>
+            <include>@CMAKE_CURRENT_BINARY_DIR@/src-gen</include>
+            <src>@CMAKE_CURRENT_BINARY_DIR@/src-gen</src>
+            <namespace></namespace>
+            <copyright>Copyright (c) 2015 Florian Behrens</copyright>
+        </output>
+        <compiler>
+            <exec>g++</exec>
+            <options>
+                -std=c++11
+                -I${POCO_BASE}/Foundation/include
+                -I${POCO_BASE}/RemotingNG/include
+                -E
+                -C
+                -o%.i
+            </options>
+        </compiler>
+    </RemoteGen>
+</AppConfig>
